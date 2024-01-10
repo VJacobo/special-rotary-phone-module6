@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Wather Dashboard</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>
@@ -12,11 +12,14 @@
             <form id="cityForm">
                 <label for="cityInput">Enter City:</label>
                 <input type="text" id="cityInput" placeholder="City">
-                <button type="submit">Search</button>
+                <button id="searchButton">Search</button>
             </form>
         </header>
         <main>
             <section id="currentWeather"></section>
+                <div id="'temperature"></div>
+                <div id="description"></div>
+                <div id="location"></div>
             <section id="forecast"></section>
             <section id="searchHistory"></section>
         </main>
