@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
             const response = await fetch(apiURL);
             const data = await response.json();
-            console.log(data); // Log the data to the console
+            console.log(data);
             displayCurrentWeather(data);
             saveToLocalStorage(cityName, data);
         } catch (error) {
@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to display current weather
     function displayCurrentWeather(data) {
         const temperatureElement = document.getElementById('temperature');
-        const descriptionElement = document.getElementById('description'); // Corrected variable name
-        const locationElement = document.getElementById('location'); // Corrected variable name
+        const descriptionElement = document.getElementById('description'); 
+        const locationElement = document.getElementById('location'); 
 
         temperatureElement.textContent = `Temperature: ${data.main.temp} °F`;
         descriptionElement.textContent = `Description: ${data.weather[0].description}`;
