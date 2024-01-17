@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const cityForm = document.getElementById('cityForm');
     const cityInput = document.getElementById('cityInput');
     const currentWeatherSection = document.getElementById('currentWeatherSection');
-    const forecastSection = document.getElementById('forecastSection');
-    const searchHistorySection = document.getElementById('searchHistorySection');
     const searchButton = document.getElementById('searchButton');
 
     // Event Listener - City Form
-    searchButton.addEventListener('click', async function () {
+    cityForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
         const cityName = cityInput.value.trim();
 
         if (cityName !== '') {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fetching Weather Data
     async function fetchWeatherData(cityName) {
         const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`;
-    
+
         try {
             const response = await fetch(apiURL);
             const data = await response.json();
@@ -34,12 +34,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to display current weather
     function displayCurrentWeather(data) {
         const temperatureElement = document.getElementById('temperature');
-        const descriptionElement = document.getElementById('description'); 
-        const locationElement = document.getElementById('location'); 
+        const descriptionElement = document.getElementById('description');
+        const locationElement = document.getElementById('location');
 
-        temperatureElement.textContent = `Temperature: ${data.main.temp} °F`;
-        descriptionElement.textContent = `Description: ${data.weather[0].description}`;
-        locationElement.textContent = `Location: ${data.name}, ${data.sys.country}`;
+        if (temperatureElement && descriptionElement && locationElement) {
+            temperatureElement.textContent = `Temperature: ${data.main.temp}°F`;
+            descriptionElement.textContent = `Description: ${data.weather[0].description}`;
+            locationElement.textContent = `Location: ${data.name}, ${data.sys.country}`;
+        } else {
+            console.error('Error: Weather elements not found in the HTML.');
+        }
     }
 
     // Saving data to local storage
@@ -55,18 +59,4 @@ document.addEventListener('DOMContentLoaded', function () {
         // Save updated weather history to local storage
         localStorage.setItem('weatherHistory', JSON.stringify(weatherHistory));
     }
-
-    // Retrieve data from local storage
-    function getFromLocalStorage(cityName) {
-        const weatherHistory = JSON.parse(localStorage.getItem('weatherHistory')) || {};
-
-        // Get data for a specific city
-        const cityData = weatherHistory[cityName];
-        if (cityData) {
-            console.log('Weather data for', cityName, ':', cityData.data);
-        } else {
-            console.log('No weather data found for', cityName);
-        }
-    }
 });
-
