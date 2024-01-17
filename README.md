@@ -5,6 +5,12 @@ Server-Side APIs Challenge: Weather Dashboard
 The weather app can get data of the desired city. Type desired city in the search bar and get the temperature, description, and the location of city.
 I used APIs from OpenWeather to get live city weatherData
 
+### Screenshot off Weather APP:
+![Alt text](WeatherDashboard.png)
+
+### Live Link to Weather APP:
+https://vjacobo.github.io/special-rotary-phone-module6/
+
 ### Credits
 Build A Weather App in HTML CSS and JavaScript | Weather App Project HTML CSS and JavaScript
 https://www.youtube.com/watch?v=SeXg3AX82ig
@@ -21,3 +27,5 @@ MIT License
 
 ##### TO DO
 want to complete the connectivity to the OpenWeather API- this repo is just code
+
+ I recommend including a screenshot of the application along with a link to the deployed site. This will provide a more comprehensive and engaging overview for anyone exploring your repository.
