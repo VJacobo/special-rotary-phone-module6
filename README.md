@@ -23,9 +23,3 @@ https://openweathermap.org
 
 #### License
 MIT License
-
-
-##### TO DO
-want to complete the connectivity to the OpenWeather API- this repo is just code
-
- I recommend including a screenshot of the application along with a link to the deployed site. This will provide a more comprehensive and engaging overview for anyone exploring your repository.
